@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower-bank application</title>
+    <link rel="shortcut icon" href="/src/images/favicon-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/src/main.css">
+</head>
+<body>
+    <!-- nav bar section -->
+    <div class="contain-layout p-3 bg-slate-400">
+      <nav>
+        <ul class="flex justify-around items-center md:flex-row flex-col">
+          <li>
+            <a
+              href="#dashboard"
+              class="md:text-[35px] text-[28px] text-orange-300"
+              >Flower Bank</a
+            >
+          </li>
+          <li class="flex gap-5">
+            <a
+              href="#dashboard"
+              class="md:text-2xl text-xl active hover:underline hover:text-yellow-800 transition-all duration-300"
+              id="dashboard"
+              >Dashboard</a
+            >
+            <a
+              href="#transaction-history"
+              class="md:text-2xl text-xl text-white hover:underline hover:text-yellow-800 transition-all duration-300"
+              id="Transaction"
+              >Transaction History</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!--nav bar section end -->
+
+    <!-- dashboard section-->
+    <div
+      class="contain-layout mx-5 bg-sky-200 p-8 mt-2 text-center rounded-md"
+      id="dashboardPage"
+    >
+      <div class="flex md:flex-row flex-col gap-3">
+        <!-- add balance show section-->
+        <div
+          class="md:w-[25%] w-[90%] mx-auto bg-sky-900 text-center text-white p-4 rounded-lg"
+        >
+          <h1 class="text-[25px]">Add Balance</h1>
+          <p class="text-[25px]">
+            $
+            <span class="text-4xl text-orange-600" id="addBalanceShow"
+              >00.00</span
+            >
+          </p>
+        </div>
+        <!--add balance show section end -->
+        <!--total balance section -->
+        <div
+          class="md:w-[50%] w-[90%] mx-auto bg-sky-950 text-center text-white p-4 rounded-lg"
+        >
+          <h1 class="text-[25px]">Total Balance</h1>
+          <p class="text-[25px]">
+            $
+            <span class="text-4xl text-orange-600" id="totalBalanceShow"
+              >00.00</span
+            >
+          </p>
+        </div>
+        <!--total balance section end -->
+        <!-- withdraw balance show section -->
+        <div
+          class="md:w-[25%] w-[90%] mx-auto bg-sky-900 text-center text-white p-4 rounded-lg"
+        >
+          <h1 class="text-[25px]">withdraw Balance</h1>
+          <p class="text-[25px]">
+            $
+            <span class="text-4xl text-orange-600" id="withdrawBalanceShow"
+              >00.00</span
+            >
+          </p>
+        </div>
+        <!--withdraw balance show section end -->
+      </div>
+
+      <!-- add money section -->
+      <div
+        class="flex md:flex-row flex-col justify-around items-center md:gap-5 gap-3 md:mt-5 mt-16"
+      >
+        <div class="md:w-[50%] w-[90%] mx-auto bg-blue-800 p-4 rounded-md">
+          <form class="flex flex-col gap-3">
+            <label for="addMoney" class="text-2xl text-white font-bold"
+              >Add Money</label
+            >
+            <input
+              type="number"
+              name=""
+              id="addMoneyInput"
+              placeholder="add money"
+              class="border-0 py-3 px-6 rounded-2xl transition-all duration-500 hover:shadow-lg hover:shadow-slate-700 focus:bg-slate-700 bg-[#0C5578] shadow-2xl focus:text-white text-xl"
+            />
+            <button
+              type="button"
+              class="bg-sky-600 text-white text-center py-2 px-6 rounded-lg md:w-[50%] w-[100%] mx-auto transition-all duration-500 hover:outline-none hover:bg-amber-300 hover:text-gray-700 hover:text-3xl text-2xl"
+              id="addMoneyBtn"
+            >
+              Add Money
+            </button>
+          </form>
+        </div>
+        <!-- add money section end -->
+        <hr
+          class="w-36 h-px my-8 bg-orange-800 border-0 md:rotate-45 rotate-0"
+        />
+        <!-- withdraw money section -->
+        <div class="md:w-[50%] w-[90%] mx-auto bg-blue-800 p-4 rounded-md">
+          <form class="flex flex-col gap-3">
+            <label for="withdraw" class="text-2xl text-white font-bold"
+              >withdraw Money</label
+            >
+            <input
+              type="number"
+              name=""
+              id="withdrawInput"
+              placeholder="withdraw money"
+              class="border-0 py-3 px-6 rounded-2xl transition-all duration-500 hover:shadow-lg hover:shadow-slate-700 focus:bg-slate-700 bg-[#0C5578] shadow-2xl focus:text-white text-xl"
+            />
+            <button
+              type="button"
+              class="bg-sky-600 text-white text-center py-2 px-6 rounded-lg md:w-[60%] w-[100%] mx-auto transition-all duration-500 hover:outline-none hover:bg-amber-300 hover:text-gray-700 hover:text-3xl text-2xl"
+              id="withdrawMoneyBtn"
+            >
+              withdraw Money
+            </button>
+          </form>
+        </div>
+        <!--withdraw money section end -->
+      </div>
+    </div>
+    <!-- dashboard section end -->
+
+    <!-- Transaction History section start-->
+    <div
+      class="contain-layout justify-center flex-col items-center bg-sky-200 mx-5 p-4 rounded-md hidden"
+      id="TransactionPage"
+    >
+      <h1 class="text-3xl text-gray-800 mb-5 font-bold">Transaction History</h1>
+      <table class="w-[80%] mx-auto border-collapse border border-slate-500">
+        <thead>
+          <tr>
+            <th class="border border-slate-600">Date</th>
+            <th class="border border-slate-600">Type</th>
+            <th class="border border-slate-600">Amount</th>
+            <th class="border border-slate-600">Total balance</th>
+          </tr>
+        </thead>
+        <tbody id="transactionHistory"></tbody>
+      </table>
+    </div>
+
+    <!-- js link -->
+    <script type="module" src="index.js"></script>
+</body>
+</html>
